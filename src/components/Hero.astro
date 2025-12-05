@@ -1,0 +1,303 @@
+---
+---
+
+<section class="hero">
+	<div class="hero-container">
+		<div class="hero-content">
+			<h1 class="hero-title">
+				アイデアを形に、最速で。
+			</h1>
+			<p class="hero-description">
+				最小限の機能に絞ったプロトタイプを最短1週間で納品。<br />
+				新たなビジネスの可能性を、金木電王で探求しませんか？
+			</p>
+			<a href="#contact" class="btn-primary">
+				お問い合わせ
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+		<div class="hero-visual">
+			<div class="mockup-desktop">
+				<div class="mockup-header">
+					<div class="mockup-dots">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				<div class="mockup-content">
+					<div class="chart-grid">
+						<div class="chart-item">
+							<div class="chart-label">進捗率</div>
+							<div class="chart-value">85%</div>
+							<div class="progress-bar">
+								<div class="progress-fill" style="width: 85%;"></div>
+							</div>
+						</div>
+						<div class="chart-item">
+							<div class="chart-label">完了タスク</div>
+							<div class="chart-value">12/15</div>
+							<div class="task-list">
+								<div class="task-item done"></div>
+								<div class="task-item done"></div>
+								<div class="task-item"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mockup-mobile">
+				<div class="mockup-mobile-header"></div>
+				<div class="mockup-mobile-content">
+					<div class="mobile-stats">
+						<div class="stat-circle"></div>
+						<div class="stat-bars">
+							<div class="stat-bar" style="width: 60%;"></div>
+							<div class="stat-bar" style="width: 40%;"></div>
+							<div class="stat-bar" style="width: 80%;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		padding: calc(var(--spacing-3xl) + 60px) var(--spacing-md) var(--spacing-3xl);
+		background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+		overflow: hidden;
+	}
+
+	.hero-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-3xl);
+		align-items: center;
+	}
+
+	.hero-content {
+		z-index: 1;
+	}
+
+	.hero-title {
+		font-size: clamp(2.5rem, 5vw, 4rem);
+		line-height: 1.1;
+		margin-bottom: var(--spacing-md);
+		letter-spacing: -0.02em;
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-xl);
+		line-height: 1.8;
+	}
+
+	.btn-primary {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.625rem;
+		padding: 1rem 2rem;
+		background: var(--color-accent);
+		color: white;
+		border-radius: var(--radius-xl);
+		font-weight: 600;
+		font-size: 1.0625rem;
+		transition: all 0.3s ease;
+		box-shadow: var(--shadow-lg);
+	}
+
+	.btn-primary:hover {
+		background: var(--color-hover);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-xl);
+	}
+
+	.hero-visual {
+		position: relative;
+		height: 500px;
+	}
+
+	.mockup-desktop {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		width: 90%;
+		background: white;
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-xl);
+		border: 1px solid var(--color-border);
+		overflow: hidden;
+	}
+
+	.mockup-header {
+		padding: var(--spacing-sm);
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-surface);
+	}
+
+	.mockup-dots {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.mockup-dots span {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: var(--color-border);
+	}
+
+	.mockup-content {
+		padding: var(--spacing-lg);
+	}
+
+	.chart-grid {
+		display: grid;
+		gap: var(--spacing-md);
+	}
+
+	.chart-item {
+		padding: var(--spacing-md);
+		background: var(--color-surface);
+		border-radius: var(--radius-md);
+		border: 1px solid var(--color-border);
+	}
+
+	.chart-label {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+		margin-bottom: 0.5rem;
+	}
+
+	.chart-value {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.progress-bar {
+		height: 8px;
+		background: var(--color-border);
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+	}
+
+	.progress-fill {
+		height: 100%;
+		background: var(--color-accent);
+		transition: width 0.3s ease;
+	}
+
+	.task-list {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.task-item {
+		width: 40px;
+		height: 8px;
+		background: var(--color-border);
+		border-radius: var(--radius-sm);
+	}
+
+	.task-item.done {
+		background: var(--color-accent);
+	}
+
+	.mockup-mobile {
+		position: absolute;
+		bottom: 10%;
+		right: 0;
+		width: 45%;
+		aspect-ratio: 9/16;
+		background: white;
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-xl);
+		border: 1px solid var(--color-border);
+		overflow: hidden;
+	}
+
+	.mockup-mobile-header {
+		height: 60px;
+		background: var(--color-surface);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.mockup-mobile-content {
+		padding: var(--spacing-md);
+	}
+
+	.mobile-stats {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.stat-circle {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background: var(--color-surface);
+		border: 4px solid var(--color-accent);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.stat-bars {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.stat-bar {
+		height: 12px;
+		background: var(--color-accent);
+		border-radius: var(--radius-sm);
+	}
+
+	@media (max-width: 968px) {
+		.hero-container {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-2xl);
+		}
+
+		.hero-visual {
+			height: 400px;
+		}
+
+		.mockup-desktop {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero {
+			padding: calc(var(--spacing-2xl) + 60px) var(--spacing-sm) var(--spacing-2xl);
+		}
+
+		.hero-title {
+			font-size: 2rem;
+		}
+
+		.hero-description {
+			font-size: 1rem;
+		}
+
+		.hero-visual {
+			height: 300px;
+		}
+
+		.mockup-mobile {
+			display: none;
+		}
+	}
+</style>
+

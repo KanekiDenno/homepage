@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="会社概要 | 金木電王">
+	<Navigation />
+	<main class="page-content">
+		<div class="container">
+			<h1 class="page-title">会社概要</h1>
+
+			<section class="content-section">
+				<h2 class="section-heading">金木電王について</h2>
+				<p class="text">
+					金木電王は、アイデアを素早く形にすることを使命とするプロトタイプ開発サービスです。<br />
+					最小限の機能に絞り込み、最速でプロダクトを市場に投入することで、お客様のビジネスチャンスを最大化します。
+				</p>
+			</section>
+
+			<section class="content-section">
+				<h2 class="section-heading">事業内容</h2>
+				<ul class="list">
+					<li>Webアプリケーション・モバイルアプリのプロトタイプ開発</li>
+					<li>MVP（Minimum Viable Product）開発支援</li>
+					<li>技術コンサルティング</li>
+					<li>既存システムの改善・最適化</li>
+				</ul>
+			</section>
+
+			<section class="content-section">
+				<h2 class="section-heading">代表者情報</h2>
+				<dl class="definition-list">
+					<dt>代表者</dt>
+					<dd>金木 電王</dd>
+					<dt>設立</dt>
+					<dd>2025年</dd>
+					<dt>事業形態</dt>
+					<dd>個人事業</dd>
+				</dl>
+			</section>
+
+			<section class="content-section">
+				<h2 class="section-heading">お問い合わせ</h2>
+				<dl class="definition-list">
+					<dt>メールアドレス</dt>
+					<dd><a href="mailto:ou.kaneki@kaneki-denno.com" class="link">ou.kaneki@kaneki-denno.com</a></dd>
+					<dt>営業時間</dt>
+					<dd>平日 10:00 - 18:00</dd>
+				</dl>
+			</section>
+
+			<section class="content-section">
+				<h2 class="section-heading">理念</h2>
+				<p class="text">
+					私たちは、スピードと品質のバランスを重視し、お客様のビジネスアイデアを最速で実現します。<br />
+					プロトタイプ開発を通じて、新しいビジネスの可能性を探求し、イノベーションの創出をサポートします。
+				</p>
+			</section>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.page-content {
+		min-height: calc(100vh - 200px);
+		padding: calc(var(--spacing-3xl) + 60px) var(--spacing-md) var(--spacing-3xl);
+		background: var(--color-bg);
+	}
+
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.page-title {
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		margin-bottom: var(--spacing-3xl);
+		text-align: center;
+		letter-spacing: -0.02em;
+	}
+
+	.content-section {
+		margin-bottom: var(--spacing-3xl);
+		padding: var(--spacing-xl);
+		background: var(--color-surface);
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--color-border);
+	}
+
+	.section-heading {
+		font-size: 1.75rem;
+		margin-bottom: var(--spacing-md);
+		font-weight: 700;
+		border-bottom: 2px solid var(--color-accent);
+		padding-bottom: var(--spacing-sm);
+	}
+
+	.text {
+		line-height: 1.8;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.text:last-child {
+		margin-bottom: 0;
+	}
+
+	.list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.list li {
+		padding: var(--spacing-sm) 0;
+		padding-left: 1.5rem;
+		position: relative;
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+	}
+
+	.list li::before {
+		content: '▸';
+		position: absolute;
+		left: 0;
+		color: var(--color-accent);
+		font-weight: 700;
+	}
+
+	.definition-list {
+		display: grid;
+		grid-template-columns: 140px 1fr;
+		gap: var(--spacing-md);
+	}
+
+	.definition-list dt {
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	.definition-list dd {
+		color: var(--color-text-secondary);
+	}
+
+	.link {
+		color: var(--color-accent);
+		text-decoration: underline;
+		transition: opacity 0.2s ease;
+	}
+
+	.link:hover {
+		opacity: 0.7;
+	}
+
+	@media (max-width: 640px) {
+		.page-content {
+			padding: calc(var(--spacing-2xl) + 60px) var(--spacing-sm) var(--spacing-2xl);
+		}
+
+		.content-section {
+			padding: var(--spacing-md);
+		}
+
+		.definition-list {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-xs);
+		}
+
+		.definition-list dd {
+			margin-bottom: var(--spacing-md);
+		}
+	}
+</style>
+

@@ -1,0 +1,150 @@
+---
+const features = [
+	{
+		title: '最速納品',
+		description: '最短1週間でプロトタイプを納品。スピード感を持ってアイデアを形にします。',
+		icon: 'rocket',
+	},
+	{
+		title: '最小限の機能',
+		description: '必要な機能だけに絞り込み、シンプルで使いやすいプロトタイプを開発します。',
+		icon: 'target',
+	},
+	{
+		title: '柔軟な対応',
+		description: 'お客様のニーズに合わせて、柔軟にカスタマイズ可能です。',
+		icon: 'settings',
+	},
+	{
+		title: '高品質',
+		description: '豊富な経験と最新技術により、高品質なプロトタイプをお届けします。',
+		icon: 'award',
+	},
+	{
+		title: '継続サポート',
+		description: '納品後も継続的なサポートで、ビジネスの成長をお手伝いします。',
+		icon: 'shield',
+	},
+	{
+		title: 'コストパフォーマンス',
+		description: '必要最小限の機能開発により、コストを抑えた開発を実現します。',
+		icon: 'dollar',
+	},
+];
+
+const iconPaths = {
+	rocket: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
+	target: 'M22 12h-4l-3 9L9 3l-3 9H2',
+	settings: 'M12 15a3 3 0 100-6 3 3 0 000 6z M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z',
+	award: 'M12 15a7 7 0 100-14 7 7 0 000 14zM8.21 13.89L7 23l5-3 5 3-1.21-9.12',
+	shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+	dollar: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6',
+};
+---
+
+<section id="features" class="features">
+	<div class="features-container">
+		<div class="features-header">
+			<h2 class="section-title">特徴</h2>
+			<p class="section-description">
+				金木電王が選ばれる理由
+			</p>
+		</div>
+		<div class="features-grid">
+			{features.map((feature) => (
+				<div class="feature-card">
+					<div class="feature-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d={iconPaths[feature.icon]} />
+						</svg>
+					</div>
+					<h3 class="feature-title">{feature.title}</h3>
+					<p class="feature-description">{feature.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.features {
+		padding: var(--spacing-3xl) var(--spacing-md);
+		background: var(--color-bg);
+	}
+
+	.features-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.features-header {
+		text-align: center;
+		margin-bottom: var(--spacing-3xl);
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin-bottom: var(--spacing-sm);
+		letter-spacing: -0.02em;
+	}
+
+	.section-description {
+		font-size: 1.125rem;
+		color: var(--color-text-secondary);
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: var(--spacing-lg);
+	}
+
+	.feature-card {
+		padding: var(--spacing-xl);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		transition: all 0.3s ease;
+	}
+
+	.feature-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-lg);
+		border-color: var(--color-accent);
+	}
+
+	.feature-icon {
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--color-accent);
+		color: white;
+		border-radius: var(--radius-md);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.feature-title {
+		font-size: 1.25rem;
+		margin-bottom: var(--spacing-sm);
+		font-weight: 600;
+	}
+
+	.feature-description {
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+	}
+
+	@media (max-width: 640px) {
+		.features {
+			padding: var(--spacing-2xl) var(--spacing-sm);
+		}
+
+		.features-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+		}
+	}
+</style>
+

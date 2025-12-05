@@ -1,0 +1,262 @@
+---
+const plans = [
+	{
+		name: 'ベーシック',
+		price: '¥300,000',
+		period: '〜',
+		description: 'シンプルなプロトタイプに最適',
+		features: [
+			'基本機能の実装',
+			'レスポンシブデザイン',
+			'1週間での納品',
+			'1ヶ月間のサポート',
+			'修正2回まで無料',
+		],
+		highlighted: false,
+	},
+	{
+		name: 'スタンダード',
+		price: '¥500,000',
+		period: '〜',
+		description: '本格的な機能開発に',
+		features: [
+			'ベーシックの全機能',
+			'API連携',
+			'データベース構築',
+			'3ヶ月間のサポート',
+			'修正5回まで無料',
+			'セキュリティ対策',
+		],
+		highlighted: true,
+	},
+	{
+		name: 'プレミアム',
+		price: '¥800,000',
+		period: '〜',
+		description: '複雑なシステム開発に',
+		features: [
+			'スタンダードの全機能',
+			'高度な機能実装',
+			'パフォーマンス最適化',
+			'6ヶ月間のサポート',
+			'修正無制限',
+			'専任担当者',
+			'定期ミーティング',
+		],
+		highlighted: false,
+	},
+];
+---
+
+<section id="pricing" class="pricing">
+	<div class="pricing-container">
+		<div class="pricing-header">
+			<h2 class="section-title">料金</h2>
+			<p class="section-description">
+				プロジェクトに最適なプランをお選びください
+			</p>
+		</div>
+		<div class="pricing-grid">
+			{plans.map((plan) => (
+				<div class={`pricing-card ${plan.highlighted ? 'highlighted' : ''}`}>
+					{plan.highlighted && <div class="badge">おすすめ</div>}
+					<div class="plan-header">
+						<h3 class="plan-name">{plan.name}</h3>
+						<p class="plan-description">{plan.description}</p>
+					</div>
+					<div class="plan-price">
+						<span class="price">{plan.price}</span>
+						<span class="period">{plan.period}</span>
+					</div>
+					<ul class="plan-features">
+						{plan.features.map((feature) => (
+							<li class="feature-item">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="20 6 9 17 4 12"></polyline>
+								</svg>
+								<span>{feature}</span>
+							</li>
+						))}
+					</ul>
+					<a href="#contact" class={`btn-plan ${plan.highlighted ? 'btn-plan-primary' : ''}`}>
+						お問い合わせ
+					</a>
+				</div>
+			))}
+		</div>
+		<p class="pricing-note">
+			※料金は参考価格です。プロジェクトの規模や内容により変動する場合があります。<br />
+			詳細はお気軽にお問い合わせください。
+		</p>
+	</div>
+</section>
+
+<style>
+	.pricing {
+		padding: var(--spacing-3xl) var(--spacing-md);
+		background: var(--color-surface);
+	}
+
+	.pricing-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.pricing-header {
+		text-align: center;
+		margin-bottom: var(--spacing-3xl);
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin-bottom: var(--spacing-sm);
+		letter-spacing: -0.02em;
+	}
+
+	.section-description {
+		font-size: 1.125rem;
+		color: var(--color-text-secondary);
+	}
+
+	.pricing-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: var(--spacing-lg);
+		margin-bottom: var(--spacing-xl);
+	}
+
+	.pricing-card {
+		position: relative;
+		padding: var(--spacing-xl);
+		background: var(--color-bg);
+		border: 2px solid var(--color-border);
+		border-radius: var(--radius-xl);
+		display: flex;
+		flex-direction: column;
+		transition: all 0.3s ease;
+	}
+
+	.pricing-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-xl);
+	}
+
+	.pricing-card.highlighted {
+		border-color: var(--color-accent);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.badge {
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0.375rem 1rem;
+		background: var(--color-accent);
+		color: white;
+		font-size: 0.875rem;
+		font-weight: 600;
+		border-radius: var(--radius-lg);
+	}
+
+	.plan-header {
+		margin-bottom: var(--spacing-md);
+	}
+
+	.plan-name {
+		font-size: 1.5rem;
+		margin-bottom: var(--spacing-xs);
+		font-weight: 700;
+	}
+
+	.plan-description {
+		color: var(--color-text-secondary);
+		font-size: 0.9375rem;
+	}
+
+	.plan-price {
+		margin-bottom: var(--spacing-xl);
+		padding-bottom: var(--spacing-md);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.price {
+		font-size: 2.5rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+
+	.period {
+		font-size: 1rem;
+		color: var(--color-text-secondary);
+		margin-left: 0.25rem;
+	}
+
+	.plan-features {
+		list-style: none;
+		margin-bottom: var(--spacing-xl);
+		flex: 1;
+	}
+
+	.feature-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		margin-bottom: var(--spacing-sm);
+		color: var(--color-text-secondary);
+		font-size: 0.9375rem;
+	}
+
+	.feature-item svg {
+		flex-shrink: 0;
+		margin-top: 2px;
+		color: var(--color-accent);
+	}
+
+	.btn-plan {
+		display: block;
+		width: 100%;
+		padding: 0.875rem 1.5rem;
+		text-align: center;
+		border: 2px solid var(--color-accent);
+		background: transparent;
+		color: var(--color-accent);
+		border-radius: var(--radius-lg);
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+	.btn-plan:hover {
+		background: var(--color-accent);
+		color: white;
+		transform: translateY(-1px);
+	}
+
+	.btn-plan-primary {
+		background: var(--color-accent);
+		color: white;
+	}
+
+	.btn-plan-primary:hover {
+		background: var(--color-hover);
+		border-color: var(--color-hover);
+	}
+
+	.pricing-note {
+		text-align: center;
+		color: var(--color-text-secondary);
+		font-size: 0.875rem;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.pricing {
+			padding: var(--spacing-2xl) var(--spacing-sm);
+		}
+
+		.pricing-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
