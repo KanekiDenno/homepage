@@ -1,168 +1,92 @@
 ---
 const currentYear = new Date().getFullYear();
-
-const footerLinks = {
-	company: [
-		{ label: '会社概要', href: '/about' },
-		{ label: 'プライバシーポリシー', href: '/privacy' },
-		{ label: '利用規約', href: '/terms' },
-	],
-	services: [
-		{ label: 'プロトタイプ開発', href: '#features' },
-		{ label: '料金プラン', href: '#pricing' },
-		{ label: 'よくある質問', href: '#faq' },
-	],
-	contact: [
-		{ label: 'お問い合わせ', href: '#contact' },
-		{ label: 'ou.kaneki@kaneki-denno.com', href: 'mailto:ou.kaneki@kaneki-denno.com' },
-	],
-};
 ---
 
-<footer class="footer">
-	<div class="footer-container">
-		<div class="footer-main">
-	<div class="footer-brand">
-		<div class="footer-logo">
-			<img src="/kaneki-denno-logo-dark.svg" alt="金木電王"  />
-		</div>
-		<p class="footer-tagline">アイデアを形に、最速で。</p>
-	</div>
-			<div class="footer-links">
-				<div class="footer-column">
-					<h3 class="footer-title">会社情報</h3>
-					<ul class="link-list">
-						{footerLinks.company.map((link) => (
-							<li>
-								<a href={link.href} class="footer-link">{link.label}</a>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div class="footer-column">
-					<h3 class="footer-title">サービス</h3>
-					<ul class="link-list">
-						{footerLinks.services.map((link) => (
-							<li>
-								<a href={link.href} class="footer-link">{link.label}</a>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div class="footer-column">
-					<h3 class="footer-title">お問い合わせ</h3>
-					<ul class="link-list">
-						{footerLinks.contact.map((link) => (
-							<li>
-								<a href={link.href} class="footer-link">{link.label}</a>
-							</li>
-						))}
-					</ul>
-				</div>
+<footer class="site-footer">
+	<div class="site-footer-inner">
+		<div class="site-footer-left">
+			<img src="/kaneki-denno-icon.png" alt="金木電王" />
+			<div>
+				<div class="site-footer-title">金木電王</div>
+				<div class="site-footer-sub">Kaneki Denno Innovation</div>
 			</div>
 		</div>
-		<div class="footer-bottom">
-			<p class="copyright">© {currentYear} 金木電王. All rights reserved.</p>
+		<div class="site-footer-links">
+			<a href="/about">会社概要</a>
+			<a href="/privacy">プライバシーポリシー</a>
+			<a href="/terms">利用規約</a>
+			<a href="mailto:ou.kaneki@kaneki-denno.com">ou.kaneki@kaneki-denno.com</a>
 		</div>
+		<div class="site-footer-copy">© {currentYear} KANEKI DENNO. All rights reserved.</div>
 	</div>
 </footer>
 
 <style>
-	.footer {
-		background: #0a0a0a;
-		color: white;
-		padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-lg);
+	.site-footer {
+		border-top: 1px solid var(--border);
+		background: var(--bg);
+		padding: 40px 48px;
 	}
 
-	.footer-container {
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	.footer-main {
+	.site-footer-inner {
 		display: grid;
-		grid-template-columns: 1.5fr 2fr;
-		gap: var(--spacing-3xl);
-		padding-bottom: var(--spacing-xl);
-		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-		margin-bottom: var(--spacing-lg);
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: 24px;
 	}
 
-	.footer-brand {
-		max-width: 300px;
-	}
-
-	.footer-logo {
-		height: 48px;
-		margin-bottom: var(--spacing-sm);
+	.site-footer-left {
 		display: flex;
 		align-items: center;
+		gap: 14px;
 	}
 
-	.footer-logo-image {
-		height: 100%;
-		width: auto;
+	.site-footer-left img {
+		width: 32px;
+		height: 32px;
 		object-fit: contain;
-		filter: brightness(0) invert(1);
 	}
 
-	.footer-tagline {
-		color: rgba(255, 255, 255, 0.8);
-		line-height: 1.6;
+	.site-footer-title {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 0.9rem;
+		letter-spacing: 0.05em;
 	}
 
-	.footer-links {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--spacing-xl);
+	.site-footer-sub,
+	.site-footer-copy,
+	.site-footer-links a {
+		font-family: var(--font-mono);
+		font-size: 0.6rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--gray);
 	}
 
-	.footer-title {
-		font-size: 1rem;
-		font-weight: 600;
-		margin-bottom: var(--spacing-md);
-	}
-
-	.link-list {
-		list-style: none;
+	.site-footer-links {
 		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-xs);
+		flex-wrap: wrap;
+		gap: 16px 24px;
+		justify-content: center;
 	}
 
-	.footer-link {
-		color: rgba(255, 255, 255, 0.8);
-		font-size: 0.9375rem;
-		transition: color 0.2s ease;
+	.site-footer-links a:hover {
+		color: var(--white);
 	}
 
-	.footer-link:hover {
-		color: white;
-	}
-
-	.footer-bottom {
-		text-align: center;
-	}
-
-	.copyright {
-		color: rgba(255, 255, 255, 0.6);
-		font-size: 0.875rem;
-	}
-
-	@media (max-width: 768px) {
-		.footer {
-			padding: var(--spacing-2xl) var(--spacing-sm) var(--spacing-md);
+	@media (max-width: 900px) {
+		.site-footer {
+			padding: 32px 24px;
 		}
 
-		.footer-main {
+		.site-footer-inner {
 			grid-template-columns: 1fr;
-			gap: var(--spacing-xl);
+			text-align: center;
 		}
 
-		.footer-links {
-			grid-template-columns: 1fr;
-			gap: var(--spacing-lg);
+		.site-footer-left {
+			justify-content: center;
 		}
 	}
 </style>
-

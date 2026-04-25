@@ -1,22 +1,210 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import Pricing from '../components/Pricing.astro';
-import FAQ from '../components/FAQ.astro';
-import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const values = [
+	{ num: '01', title: 'AI導入', text: '最新AIツールを業務に最適化した形で導入支援' },
+	{ num: '02', title: '自動化設計', text: '既存プロセスを分析し最適な自動化フローを構築' },
+	{ num: '03', title: '人材育成', text: '社内スタッフが自律運用できる体制づくり' },
+	{ num: '04', title: '技術実装', text: '課題に合わせた実践的なソリューションを提供' },
+];
+
+const services = [
+	{
+		num: '01',
+		title: 'AI導入・業務自動化支援',
+		desc: '広告クリエイティブ生成支援からバックオフィス自動化まで、既存業務を分析した上でAI活用の設計と実装を行います。',
+		tags: ['AI導入', '業務自動化', 'コスト削減'],
+	},
+	{
+		num: '02',
+		title: '技術研修・社内人材育成',
+		desc: 'ツールを入れて終わらせず、社内スタッフが自律的に運用・改善できるよう、実務に寄せた研修と伴走支援を提供します。',
+		tags: ['GAS研修', '内製化', 'リテラシー向上'],
+	},
+];
+
+const strengths = [
+	{ icon: '実装', title: '高い技術実装力', desc: '自社AIプロダクト開発で培った実践的なノウハウをベースに支援' },
+	{ icon: '研修', title: '業務自動化研修', desc: '現場で即戦力となる自動化スクリプトの設計とレクチャー' },
+	{ icon: 'AI', title: '最新AI技術対応', desc: '急速に進化するAIツールを継続的にキャッチアップして提案' },
+	{ icon: '伴走', title: '伴走型コンサルティング', desc: '導入後も継続支援し、内製化まで責任を持って伴走' },
+];
+
+const useCases = [
+	{
+		num: '01',
+		title: 'クリエイティブ制作の自動化',
+		desc: '生成フローの整備により制作時間とコストを削減し、クリエイターがより高付加価値な業務に集中できる体制を作ります。',
+	},
+	{
+		num: '02',
+		title: '組織全体のITリテラシー向上',
+		desc: '現場メンバーへの技術研修を通じて、自動化の内製化と継続改善サイクルを社内に定着させます。',
+	},
+];
 ---
 
-<Layout title="金木電王 - アイデアを形に、最速で。">
+<Layout title="金木電王 | AI-Driven Growth Partner">
 	<Navigation />
 	<main>
-		<Hero />
-		<Features />
-		<Pricing />
-		<FAQ />
-		<Contact />
+		<section class="hero">
+			<div class="hero-left">
+				<div class="hero-eyebrow">広告代理店向け AIコンサルティング</div>
+				<h1 class="hero-title">
+					<span class="line-ja">戦略から実装まで、</span>
+					<span>AI-DRIVEN</span>
+					<span>GROWTH</span>
+					<span class="accent">PARTNER.</span>
+				</h1>
+				<p class="hero-copy">
+					クリエイティブ制作からバックオフィスまで、最新のAI技術と業務自動化でワークフローを最適化。事業成長に直結する伴走型サポートを提供します。
+				</p>
+				<div class="hero-actions">
+					<a href="mailto:ou.kaneki@kaneki-denno.com" class="page-button primary">無料相談を予約する</a>
+					<a href="#services" class="page-button ghost">サービス詳細</a>
+				</div>
+			</div>
+			<div class="hero-right" aria-hidden="true">
+				<div class="hero-visual">
+					<div class="hero-grid-bg"></div>
+					<div class="hero-logo-wrap">
+						<img src="/kaneki-denno-icon.png" class="hero-logo-big" alt="" />
+					</div>
+					<div class="hero-slash slash-1"></div>
+					<div class="hero-slash slash-2"></div>
+				</div>
+			</div>
+			<div class="hero-stat-strip">
+				<div class="hero-stat">
+					<div class="hero-stat-num">伴走型</div>
+					<div class="hero-stat-label">導入から運用まで一貫支援</div>
+				</div>
+				<div class="hero-stat">
+					<div class="hero-stat-num">自動化</div>
+					<div class="hero-stat-label">業務プロセス最適化</div>
+				</div>
+				<div class="hero-stat">
+					<div class="hero-stat-num">内製化</div>
+					<div class="hero-stat-label">社内人材の自律運用支援</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="value-section" id="value">
+			<div class="section-inner">
+				<div class="value-grid">
+					<div class="value-text">
+						<div class="page-label">提供価値</div>
+						<h2>ワークフローを<br />根本から変える</h2>
+						<p>
+							クリエイティブ制作からバックオフィスまで、最新のAI技術と業務自動化ツールでワークフローを最適化。社内のITリテラシー向上から実務の自動化まで、事業成長に直結する支援を行います。
+						</p>
+					</div>
+					<div class="value-visual">
+						{values.map((item) => (
+							<article class="value-block">
+								<div class="value-block-accent"></div>
+								<div class="value-block-num">{item.num}</div>
+								<h3 class="value-block-title">{item.title}</h3>
+								<p class="value-block-text">{item.text}</p>
+							</article>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="services-section" id="services">
+			<div class="section-inner">
+				<div class="services-header">
+					<div>
+						<div class="page-label">サービス内容</div>
+						<h2>具体的な<br />支援メニュー</h2>
+					</div>
+					<p>広告代理店の業務フローに特化した、実践的なAI導入・育成プログラム</p>
+				</div>
+				<div class="services-list">
+					{services.map((svc) => (
+						<article class="service-item">
+							<div class="service-num">{svc.num}</div>
+							<div class="service-body">
+								<h3>{svc.title}</h3>
+								<p>{svc.desc}</p>
+							</div>
+							<div class="service-tags">
+								{svc.tags.map((tag) => (
+									<span class="service-tag">{tag}</span>
+								))}
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="strength-section" id="strength">
+			<div class="section-inner">
+				<div class="strength-grid">
+					<div class="strength-left">
+						<div class="strength-label">当事業の強み</div>
+						<h2>実装力と<br />現場知見の<br />融合</h2>
+						<p>
+							自社でのAIプロダクト開発で培った実践的な技術力とノウハウをベースに、クライアントの課題に合わせた最適なソリューションを提供します。
+						</p>
+					</div>
+					<div class="strength-right">
+						{strengths.map((item) => (
+							<div class="strength-pill">
+								<div class="strength-icon">{item.icon}</div>
+								<div class="strength-pill-text">
+									<strong>{item.title}</strong>
+									{item.desc}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="usecase-section" id="usecase">
+			<div class="section-inner">
+				<div class="usecase-header">
+					<div class="page-label">導入効果</div>
+					<h2>想定される<br />ユースケース</h2>
+				</div>
+				<div class="usecase-grid">
+					{useCases.map((item) => (
+						<article class="usecase-card">
+							<div class="usecase-card-bar"></div>
+							<div class="usecase-card-num">{item.num}</div>
+							<div class="page-label usecase-label">{`Case ${item.num}`}</div>
+							<h3>{item.title}</h3>
+							<p>{item.desc}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-section" id="contact">
+			<div class="section-inner">
+				<div class="cta-inner">
+					<div class="page-label cta-label">お問い合わせ</div>
+					<h2>まず、話してみませんか。</h2>
+					<p>
+						貴社の課題や状況をお聞かせください。<br />
+						最適な支援の形を一緒に考えます。
+					</p>
+					<div class="cta-actions">
+						<a href="mailto:ou.kaneki@kaneki-denno.com" class="page-button primary">無料相談を予約する</a>
+						<a href="/about" class="page-button ghost">会社概要を見る</a>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
 	<Footer />
 </Layout>
@@ -24,5 +212,587 @@ import Footer from '../components/Footer.astro';
 <style>
 	main {
 		overflow-x: hidden;
+	}
+
+	section {
+		padding: 120px 48px;
+	}
+
+	.section-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.hero {
+		min-height: 100vh;
+		padding: 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero-left {
+		padding: 160px 48px 80px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 32px;
+		z-index: 2;
+	}
+
+	.hero-eyebrow {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.hero-eyebrow::before {
+		content: '';
+		width: 32px;
+		height: 1px;
+		background: var(--accent);
+	}
+
+	.hero-title {
+		font-size: clamp(2.8rem, 5vw, 5rem);
+		font-weight: 800;
+		line-height: 1;
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
+
+	.hero-title span {
+		display: block;
+	}
+
+	.hero-title .line-ja {
+		font-family: var(--font-body);
+		font-weight: 700;
+		font-size: clamp(1.1rem, 2vw, 1.8rem);
+		letter-spacing: 0.06em;
+		color: var(--gray);
+		margin-bottom: 8px;
+	}
+
+	.hero-title .accent {
+		color: var(--accent);
+	}
+
+	.hero-copy {
+		max-width: 420px;
+		font-size: 0.95rem;
+		line-height: 1.9;
+		color: rgba(255, 255, 255, 0.55);
+	}
+
+	.hero-actions,
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.hero-right {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.hero-visual,
+	.hero-grid-bg,
+	.hero-logo-wrap {
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero-grid-bg {
+		background-image:
+			linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+	}
+
+	.hero-logo-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hero-logo-big {
+		width: min(380px, 80%);
+	}
+
+	.hero-slash {
+		position: absolute;
+		width: 2px;
+		background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+		opacity: 0.5;
+	}
+
+	.slash-1 {
+		height: 60%;
+		top: 20%;
+		left: 30%;
+		transform: rotate(-20deg);
+	}
+
+	.slash-2 {
+		height: 40%;
+		top: 30%;
+		left: 60%;
+		transform: rotate(-20deg);
+		opacity: 0.25;
+	}
+
+	.hero-stat-strip {
+		position: absolute;
+		inset: auto 0 0;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		border-top: 1px solid var(--border);
+	}
+
+	.hero-stat {
+		padding: 24px 48px;
+		border-right: 1px solid var(--border);
+	}
+
+	.hero-stat:last-child {
+		border-right: 0;
+	}
+
+	.hero-stat-num {
+		font-family: var(--font-display);
+		font-size: 2rem;
+		font-weight: 800;
+		line-height: 1;
+		color: var(--accent);
+	}
+
+	.hero-stat-label {
+		margin-top: 6px;
+		font-family: var(--font-mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.14em;
+		color: var(--gray);
+		text-transform: uppercase;
+	}
+
+	.value-section,
+	.usecase-section {
+		background: var(--bg2);
+		border-block: 1px solid var(--border);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.value-section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 600px;
+		height: 600px;
+		background: radial-gradient(circle, oklch(88% 0.22 88 / 0.05) 0%, transparent 70%);
+		transform: translateX(-50%) translateY(-30%);
+	}
+
+	.value-grid,
+	.strength-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 80px;
+		align-items: center;
+	}
+
+	.value-text h2,
+	.services-header h2,
+	.usecase-header h2 {
+		margin: 16px 0 24px;
+		font-size: clamp(2rem, 3.5vw, 3.2rem);
+		font-weight: 800;
+	}
+
+	.value-text p,
+	.services-header p,
+	.usecase-card p {
+		font-size: 0.9rem;
+		line-height: 1.9;
+		color: rgba(255, 255, 255, 0.55);
+	}
+
+	.value-visual,
+	.usecase-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2px;
+	}
+
+	.value-block,
+	.usecase-card {
+		position: relative;
+		overflow: hidden;
+		padding: 32px 28px;
+		background: var(--bg3);
+		border: 1px solid var(--border);
+		transition: border-color 0.3s, background 0.3s;
+	}
+
+	.value-block:hover,
+	.usecase-card:hover {
+		border-color: oklch(88% 0.22 88 / 0.4);
+		background: oklch(88% 0.22 88 / 0.04);
+	}
+
+	.value-block-accent {
+		position: absolute;
+		inset: 0 auto auto 0;
+		width: 0;
+		height: 2px;
+		background: var(--accent);
+		transition: width 0.4s ease;
+	}
+
+	.value-block:hover .value-block-accent {
+		width: 100%;
+	}
+
+	.value-block-num,
+	.service-num {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.14em;
+		color: var(--accent);
+	}
+
+	.value-block-title {
+		margin: 12px 0 8px;
+		font-family: var(--font-display);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+
+	.value-block-text {
+		font-size: 0.8rem;
+		line-height: 1.8;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.services-header {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 32px;
+		margin-bottom: 64px;
+	}
+
+	.services-header p {
+		max-width: 320px;
+		text-align: right;
+	}
+
+	.services-list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.service-item {
+		display: grid;
+		grid-template-columns: 80px 1fr auto;
+		gap: 40px;
+		align-items: start;
+		padding: 48px 0;
+		border-top: 1px solid var(--border);
+		position: relative;
+	}
+
+	.service-item:last-child {
+		border-bottom: 1px solid var(--border);
+	}
+
+	.service-item::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: oklch(88% 0.22 88 / 0);
+		transition: background 0.3s;
+		pointer-events: none;
+	}
+
+	.service-item:hover::after {
+		background: oklch(88% 0.22 88 / 0.025);
+	}
+
+	.service-body h3 {
+		margin-bottom: 12px;
+		font-size: 1.4rem;
+		font-weight: 700;
+	}
+
+	.service-body p {
+		max-width: 560px;
+		font-size: 0.88rem;
+		line-height: 1.85;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.service-tags {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 6px;
+		padding-top: 6px;
+	}
+
+	.service-tag {
+		background: var(--bg3);
+		border: 1px solid var(--border);
+		padding: 4px 10px;
+		font-family: var(--font-mono);
+		font-size: 0.6rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--gray);
+	}
+
+	.strength-section {
+		position: relative;
+		overflow: hidden;
+		background: var(--accent);
+		color: var(--bg);
+	}
+
+	.strength-section::before {
+		content: 'STRENGTH';
+		position: absolute;
+		top: 50%;
+		right: -20px;
+		transform: translateY(-50%);
+		font-family: var(--font-display);
+		font-size: 18vw;
+		font-weight: 800;
+		line-height: 1;
+		letter-spacing: -0.04em;
+		color: rgba(0, 0, 0, 0.07);
+	}
+
+	.strength-label {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: rgba(0, 0, 0, 0.5);
+	}
+
+	.strength-label::before {
+		content: '';
+		width: 24px;
+		height: 1px;
+		background: rgba(0, 0, 0, 0.4);
+	}
+
+	.strength-left h2 {
+		margin: 16px 0 28px;
+		font-size: clamp(2rem, 4vw, 3.5rem);
+		font-weight: 800;
+		color: var(--bg);
+	}
+
+	.strength-left p,
+	.strength-pill-text {
+		font-size: 0.9rem;
+		line-height: 1.85;
+		color: rgba(0, 0, 0, 0.7);
+	}
+
+	.strength-right {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.strength-pill {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		padding: 22px 0;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	.strength-pill:first-child {
+		border-top: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	.strength-icon {
+		width: 40px;
+		height: 40px;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(0, 0, 0, 0.1);
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		font-weight: 700;
+	}
+
+	.strength-pill-text strong {
+		display: block;
+		margin-bottom: 2px;
+		font-size: 0.95rem;
+		color: var(--bg);
+	}
+
+	.usecase-header {
+		margin-bottom: 64px;
+	}
+
+	.usecase-card {
+		padding: 48px 40px;
+	}
+
+	.usecase-card-bar {
+		width: 60px;
+		height: 3px;
+		background: linear-gradient(90deg, var(--accent), oklch(88% 0.22 88 / 0));
+		transition: width 0.4s ease;
+	}
+
+	.usecase-card:hover .usecase-card-bar {
+		width: 100%;
+	}
+
+	.usecase-card-num {
+		position: absolute;
+		top: 24px;
+		right: 28px;
+		font-family: var(--font-display);
+		font-size: 5rem;
+		font-weight: 800;
+		line-height: 1;
+		color: oklch(88% 0.22 88 / 0.08);
+	}
+
+	.usecase-label {
+		margin-top: 16px;
+	}
+
+	.usecase-card h3 {
+		margin: 20px 0 16px;
+		font-size: 1.2rem;
+		font-weight: 700;
+	}
+
+	.cta-section {
+		position: relative;
+		overflow: hidden;
+		padding-block: 140px;
+		text-align: center;
+	}
+
+	.cta-section::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 700px;
+		height: 400px;
+		background: radial-gradient(ellipse, oklch(88% 0.22 88 / 0.08) 0%, transparent 70%);
+		transform: translate(-50%, -50%);
+	}
+
+	.cta-inner {
+		position: relative;
+	}
+
+	.cta-label {
+		justify-content: center;
+	}
+
+	.cta-label::before {
+		display: none;
+	}
+
+	.cta-section h2 {
+		margin: 20px 0 28px;
+		font-size: clamp(2.5rem, 5vw, 4.5rem);
+		font-weight: 800;
+	}
+
+	.cta-section p {
+		margin-bottom: 48px;
+		font-size: 0.93rem;
+		line-height: 1.85;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.cta-actions {
+		justify-content: center;
+	}
+
+	@media (max-width: 900px) {
+		section {
+			padding: 80px 24px;
+		}
+
+		.hero {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-left {
+			padding: 120px 24px 60px;
+		}
+
+		.hero-right {
+			display: none;
+		}
+
+		.hero-stat-strip {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-stat {
+			border-right: 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.value-grid,
+		.strength-grid,
+		.usecase-grid {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+
+		.value-visual {
+			grid-template-columns: 1fr;
+		}
+
+		.services-header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.services-header p {
+			text-align: left;
+		}
+
+		.service-item {
+			grid-template-columns: 60px 1fr;
+		}
+
+		.service-tags {
+			display: none;
+		}
 	}
 </style>

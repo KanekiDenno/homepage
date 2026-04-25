@@ -4,7 +4,10 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "金木電王 - アイデアを形に、最速で。最小限の機能に絞ったプロトタイプを最短1週間で納品。" } = Astro.props;
+const {
+	title,
+	description = '金木電王 | AI導入、業務自動化、社内人材育成まで伴走するコンサルティングパートナー。',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -12,9 +15,15 @@ const { title, description = "金木電王 - アイデアを形に、最速で�
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>{title}</title>
 	</head>
 	<body>
@@ -24,57 +33,60 @@ const { title, description = "金木電王 - アイデアを形に、最速で�
 
 <style is:global>
 	:root {
-		--color-bg: #ffffff;
-		--color-surface: #fafafa;
-		--color-text: #0a0a0a;
-		--color-text-secondary: #666666;
-		--color-border: #e0e0e0;
-		--color-accent: #000000;
-		--color-hover: #333333;
-
-		--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-
-		--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-		--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-		--radius-sm: 0.25rem;
-		--radius-md: 0.5rem;
-		--radius-lg: 1rem;
-		--radius-xl: 1.5rem;
-
-		--spacing-xs: 0.5rem;
-		--spacing-sm: 1rem;
-		--spacing-md: 1.5rem;
-		--spacing-lg: 2rem;
-		--spacing-xl: 3rem;
-		--spacing-2xl: 4rem;
-		--spacing-3xl: 6rem;
+		--bg: #060606;
+		--bg2: #0f0f0f;
+		--bg3: #161616;
+		--accent: oklch(88% 0.22 88);
+		--accent-dim: oklch(88% 0.22 88 / 0.15);
+		--white: #ffffff;
+		--gray: #888888;
+		--border: rgba(255, 255, 255, 0.08);
+		--font-display: 'Syne', sans-serif;
+		--font-body: 'Noto Sans JP', sans-serif;
+		--font-mono: 'Space Mono', monospace;
 	}
 
-	* {
+	*,
+	*::before,
+	*::after {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
 	}
 
 	html {
-		font-family: var(--font-sans);
-		background: var(--color-bg);
-		color: var(--color-text);
-		line-height: 1.6;
 		scroll-behavior: smooth;
+		background: var(--bg);
 	}
 
 	body {
 		min-height: 100vh;
+		background: var(--bg);
+		color: var(--white);
+		font-family: var(--font-body);
+		font-weight: 400;
+		line-height: 1.7;
 		overflow-x: hidden;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		line-height: 1.2;
-		font-weight: 700;
+	body::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+		opacity: 0.025;
+		pointer-events: none;
+		z-index: 9999;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-display);
+		line-height: 1.1;
 	}
 
 	a {
@@ -82,16 +94,106 @@ const { title, description = "金木電王 - アイデアを形に、最速で�
 		text-decoration: none;
 	}
 
-	button {
-		cursor: pointer;
-		border: none;
-		background: none;
-		font-family: inherit;
-	}
-
 	img {
 		max-width: 100%;
 		height: auto;
+		display: block;
+	}
+
+	button,
+	input,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	button {
+		border: 0;
+		background: none;
+		color: inherit;
+	}
+
+	::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--bg);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--accent);
+	}
+	
+	.page-shell {
+		padding-top: 88px;
+	}
+
+	.page-wrap {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 48px;
+	}
+
+	.page-label {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.page-label::before {
+		content: '';
+		width: 24px;
+		height: 1px;
+		background: var(--accent);
+	}
+
+	.page-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		padding: 14px 32px;
+		transition: opacity 0.2s, transform 0.2s, border-color 0.2s, color 0.2s;
+	}
+
+	.page-button.primary {
+		background: var(--accent);
+		color: var(--bg);
+		clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+	}
+
+	.page-button.ghost {
+		border: 1px solid var(--border);
+		color: var(--white);
+	}
+
+	.page-button:hover {
+		opacity: 0.88;
+		transform: translateY(-1px);
+	}
+
+	.page-card {
+		background: var(--bg3);
+		border: 1px solid var(--border);
+	}
+
+	@media (max-width: 900px) {
+		.page-shell {
+			padding-top: 76px;
+		}
+
+		.page-wrap {
+			padding: 0 24px;
+		}
 	}
 </style>
-
